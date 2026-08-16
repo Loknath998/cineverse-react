@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * CineVerse design system — dark projection-room palette, gold accent,
+ * high-contrast serif display type with mono metadata labels.
+ *
+ * Colour tokens store bare oklch components so Tailwind can apply opacity
+ * modifiers (e.g. bg-background/85).
+ */
+
+:root {
+  --theme-transition: 180ms ease;
+  --radius: 0.25rem;
+  --background: 0.20 0.009 60;
+  --foreground: 0.95 0.008 80;
+  --card: 0.24 0.009 60;
+  --card-foreground: 0.95 0.008 80;
+  --popover: 0.24 0.009 60;
+  --popover-foreground: 0.95 0.008 80;
+  --primary: 0.83 0.14 85;
+  --primary-foreground: 0.18 0.02 60;
+  --secondary: 0.29 0.008 60;
+  --secondary-foreground: 0.95 0.008 80;
+  --muted: 0.28 0.008 60;
+  --muted-foreground: 0.66 0.012 70;
+  --accent: 0.31 0.012 60;
+  --accent-foreground: 0.95 0.008 80;
+  --destructive: 0.6 0.2 25;
+  --destructive-foreground: 0.97 0.005 80;
+  --border: 0.34 0.008 60;
+  --input: 0.34 0.008 60;
+  --ring: 0.83 0.14 85;
+  --gold: 0.83 0.14 85;
+  --gold-soft: 0.72 0.09 82;
+  --surface: 0.24 0.009 60;
+  --surface-2: 0.275 0.01 60;
+  --chart-1: 0.83 0.14 85;
+  --chart-2: 0.6 0.118 184.704;
+  --chart-3: 0.55 0.12 300;
+  --chart-4: 0.7 0.15 30;
+  --chart-5: 0.65 0.12 150;
+  --sidebar: 0.19 0.008 60;
+  --sidebar-foreground: 0.95 0.008 80;
+  --sidebar-primary: 0.83 0.14 85;
+  --sidebar-primary-foreground: 0.18 0.02 60;
+  --sidebar-accent: 0.25 0.008 60;
+  --sidebar-accent-foreground: 0.95 0.008 80;
+  --sidebar-border: 0.3 0.008 60;
+  --sidebar-ring: 0.83 0.14 85;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: Archivo, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+
+html.light {
+  color-scheme: light !important;
+}
+
+html.light body {
+  background: oklch(var(--background));
+}
+
+html, body, #root { min-height: 100%; }
+html { scroll-behavior: smooth; }
+body { transition: background-color var(--theme-transition), color var(--theme-transition); }
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: oklch(var(--border));
+  }
+
+  html:not(.light) {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: oklch(var(--background));
+    color: oklch(var(--foreground));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+  }
+}
+
+
+@keyframes cineverse-page-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-page-in { animation: cineverse-page-in 360ms cubic-bezier(.22,1,.36,1) both; }
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+::selection { background: oklch(var(--gold) / 0.28); color: oklch(var(--foreground)); }
+
+/* Light theme: warm, editorial, and deliberately high-contrast — never washed out. */
+html.light {
+  --background: 0.96 0.012 86;
+  --foreground: 0.14 0.022 52;
+  --card: 0.99 0.008 86;
+  --card-foreground: 0.14 0.022 52;
+  --popover: 0.995 0.006 86;
+  --popover-foreground: 0.14 0.022 52;
+  --primary: 0.36 0.12 68;
+  --primary-foreground: 0.99 0.005 90;
+  --secondary: 0.86 0.022 78;
+  --secondary-foreground: 0.16 0.022 52;
+  --muted: 0.88 0.020 78;
+  --muted-foreground: 0.28 0.022 55;
+  --accent: 0.90 0.026 78;
+  --accent-foreground: 0.14 0.022 52;
+  --destructive: 0.45 0.16 25;
+  --destructive-foreground: 0.99 0.005 90;
+  --border: 0.52 0.022 70;
+  --input: 0.52 0.022 70;
+  --ring: 0.40 0.14 70;
+  --gold: 0.36 0.12 68;
+  --gold-soft: 0.32 0.09 66;
+  --surface: 0.99 0.008 86;
+  --surface-2: 0.88 0.022 78;
+  --sidebar: 0.92 0.018 80;
+  --sidebar-foreground: 0.14 0.022 52;
+  --sidebar-primary: 0.36 0.12 68;
+  --sidebar-primary-foreground: 0.99 0.005 90;
+  --sidebar-accent: 0.86 0.022 78;
+  --sidebar-accent-foreground: 0.14 0.022 52;
+  --sidebar-border: 0.52 0.022 70;
+  --sidebar-ring: 0.36 0.12 68;
+}
+
+html.light body {
+  background-image:
+    radial-gradient(circle at 12% 0%, rgba(170, 116, 42, 0.10), transparent 30%),
+    linear-gradient(180deg, rgba(255,255,255,.58), transparent 42%);
+}
+
+/* Some existing components use dark utility classes; keep them legible in light mode. */
+html.light [class*="text-white"]:not(.trailer-modal *) {
+  color: oklch(var(--foreground)) !important;
+}
+html.light [class*="placeholder:text-white"]:not(.trailer-modal *)::placeholder {
+  color: oklch(var(--muted-foreground)) !important;
+}
+html.light [class*="bg-black"]:not(.trailer-modal *) {
+  background-color: oklch(var(--surface)) !important;
+}
+html.light .trailer-modal [class*="text-white"] { color: white !important; }
+html.light .trailer-modal [class*="bg-black"] { background-color: #050505 !important; }
+
+html.light .text-muted-foreground {
+  color: oklch(var(--muted-foreground)) !important;
+}
+
+html.light .text-gold,
+html.light .text-gold-soft,
+html.light .label-gold {
+  color: oklch(var(--gold)) !important;
+}
+
+html.light .text-primary {
+  color: oklch(var(--primary)) !important;
+}
+
+html.light input,
+html.light textarea,
+html.light select {
+  color: oklch(var(--foreground));
+  caret-color: oklch(var(--primary));
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: oklch(var(--muted-foreground)) !important;
+  opacity: 1;
+}
+
+html.light .border-border {
+  border-color: oklch(var(--border)) !important;
+}
+
+html.light .border-input {
+  border-color: oklch(var(--input)) !important;
+}
+
+@media (max-width: 640px) {
+  .section-title { font-size: 1.25rem !important; }
+  .label-mono, .label-gold { font-size: 0.55rem !important; }
+}
