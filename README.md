@@ -1,29 +1,99 @@
-# Welcome to your Lovable project
+# 🎬 CineVerse
 
-This project was built with [Lovable](https://lovable.dev).
+> **Your cinematic universe of movies.**
 
-## Build with Lovable
+CineVerse is a cinematic movie discovery and personal movie-library web app powered by the **TMDB API**. Explore movies, people and collections, discover similar titles, and keep your favorites, watchlist and library in one place.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## ✨ Features
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- 🎬 Movie discovery and detailed movie pages
+- 🔎 Global search for movies, people and collections
+- 🎞️ TMDB posters, backdrops, ratings, cast and crew
+- 🧩 Collection and franchise browsing
+- 🤖 Movie-specific recommendations and similar movies
+- ❤️ Favorites
+- 🔖 Watchlist
+- 📚 Personal library
+- 🎥 In-app trailer experience
+- ☀️🌙 Dark / light theme
+- 📱 Responsive cinematic UI
+- 💾 Persistent user-side preferences and lists
 
-## Development
+## 🛠️ Tech Stack
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+- React
+- Create React App
+- React Router
+- Tailwind CSS
+- TMDB API
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+## 🚀 Getting Started
+
+### 1. Clone
+
+```bash
+git clone https://github.com/Loknath998/cineverse-react.git
+cd cineverse-react
 ```
 
-## Built with
+### 2. Install dependencies
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+```bash
+npm install
+```
+
+### 3. Configure TMDB
+
+Create a `.env` file in the project root:
+
+```env
+REACT_APP_TMDB_API_KEY=your_tmdb_api_key_here
+```
+
+Keep `.env` out of Git. Commit `.env.example` with only a placeholder value.
+
+### 4. Start CineVerse
+
+```bash
+npm start
+```
+
+The app runs at `http://localhost:3000`.
+
+## 📁 Project Structure
+
+```text
+cineverse-react/
+├── public/
+├── src/
+├── .env.example
+├── .gitignore
+├── package.json
+└── README.md
+```
+
+## 🔐 Environment Variable
+
+| Variable | Purpose |
+|---|---|
+| `REACT_APP_TMDB_API_KEY` | TMDB API access |
+
+## 🎨 Branding
+
+CineVerse is built around a premium cinematic visual style with a dark-first identity and a carefully balanced light theme.
+
+> **Vibe coded by Loknath ❤️**
+
+## 📜 Credits
+
+Movie data, posters, backdrops and metadata are provided by **The Movie Database (TMDB)**.
+
+CineVerse is an independent project and is not affiliated with TMDB.
+
+## ⭐ Support
+
+If you like the project, give the repository a ⭐ on GitHub.
+
+---
+
+Made with 🎬 and ❤️ by **Loknath**
