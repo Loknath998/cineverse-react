@@ -30,7 +30,13 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --include=dev
+
+      - name: Check React Scripts
+        run: |
+          echo "Checking react-scripts..."
+          npm ls react-scripts
+          ls -la node_modules/.bin/ | grep react
 
       - name: Build CineVerse
         run: npm run build
