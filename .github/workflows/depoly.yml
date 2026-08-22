@@ -35,6 +35,9 @@ jobs:
       - name: Verify React Scripts
         run: node node_modules/react-scripts/bin/react-scripts.js --version
 
+      - name: Clean previous build
+        run: rm -rf build
+
       - name: Build CineVerse
         run: node node_modules/react-scripts/bin/react-scripts.js build
         env:
