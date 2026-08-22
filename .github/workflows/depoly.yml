@@ -27,12 +27,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 20
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Verify React Scripts
-        run: npx react-scripts --version
+        run: ./node_modules/.bin/react-scripts --version
 
       - name: Build CineVerse
         run: npm run build
