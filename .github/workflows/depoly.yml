@@ -29,6 +29,9 @@ jobs:
           node-version: 18
           cache: npm
 
+      - name: Enable npm bin links
+        run: npm config set bin-links true
+
       - name: Install dependencies
         run: npm install --include=dev
 
