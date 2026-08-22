@@ -29,20 +29,14 @@ jobs:
           node-version: 18
           cache: npm
 
-      - name: Enable npm bin links
-        run: npm config set bin-links true
-
       - name: Install dependencies
         run: npm install --include=dev
 
-      - name: Check React Scripts
-        run: |
-          echo "Checking react-scripts..."
-          npm ls react-scripts
-          ls -la node_modules/.bin/ | grep react
+      - name: Verify React Scripts
+        run: node node_modules/react-scripts/bin/react-scripts.js --version
 
       - name: Build CineVerse
-        run: npm run build
+        run: node node_modules/react-scripts/bin/react-scripts.js build
         env:
           REACT_APP_TMDB_API_KEY: ${{ secrets.REACT_APP_TMDB_API_KEY }}
 
