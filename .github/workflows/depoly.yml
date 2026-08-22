@@ -43,6 +43,11 @@ jobs:
         env:
           REACT_APP_TMDB_API_KEY: ${{ secrets.REACT_APP_TMDB_API_KEY }}
 
+      - name: Inspect build output
+        run: |
+          echo "=== BUILD DIRECTORY ==="
+          find build -maxdepth 3 -type f | sort
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
